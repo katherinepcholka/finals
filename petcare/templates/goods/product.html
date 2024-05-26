@@ -1,0 +1,22 @@
+{% extends 'basic/layout.html' %}
+{% load static %}
+
+{% block title %}Товар{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <div class="product-detailed-container">
+            {% if product.image %}
+            <img src="{{product.image.url}}" alt="" class="product-main-img">
+            {% else %}
+            <img src="{% static "img/no-product-img.png" %}" alt="">
+            {% endif %} 
+            <div class="product-description">
+                <h2>{{product.name}}</h2> 
+                <p>{{product.description}}</p>                      
+                <span class="price">Стоймость: {{ product.price }}</span>
+                <a href="{% url 'order' product.id %}"><button>Добавить в корзину</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

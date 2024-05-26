@@ -1,0 +1,84 @@
+{% extends 'basic/layout.html' %}
+{% load mptt_tags %}
+{% load static %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<div class='slogan'>
+    <h1>Самая вкусная еда для ваших питомцев!</h1>
+    <img src="{% static 'img/big-cat.png' %}" alt="big-cat" class="big-cat">
+</div>
+<div class='catalog-wrapper'>
+    <h2>Каталог</h2>
+    <div class="catalog-menu">
+        <div data-question="1" class="catalog-menu-container">
+            <div class="catalog-menu-header">
+                <img src="{% static "img/category-cat.png" %}" alt="">
+                <span>Коты</span>
+            </div>
+            <div class="catalog-menu-content">
+                <a href="catalog/cat-diet-food/">Диетический корм</a>
+                <a href="catalog/cats-dry-food/">Сухой корм</a>
+                <a href="catalog/cat-treats/">Лакомства</a>  
+            </div>
+        </div>
+        <div data-question="2" class="catalog-menu-container">
+            <div class="catalog-menu-header">
+                <img src="{% static "img/category-bird.png" %}" alt="">
+                <span>Птицы</span>
+            </div>
+            <div class="catalog-menu-content">
+                    <a href="catalog/bird-treats/">Лакомства</a>
+                    <a href="catalog/bird-food/">Сухой корм</a>
+            </div>
+        </div>  
+        <div data-question="3" class="catalog-menu-container">
+            <div class="catalog-menu-header">
+                <img src="{% static "img/category-rodents.png" %}" alt="">
+                <span>Грызуны</span>
+            </div>
+            <div class="catalog-menu-content">
+                <a href="catalog/rodents-treats/">Лакомства</a>
+                <a href="catalog/rodents-food">Сухой корм</a>
+            </div>
+        </div>   
+        <div data-question="4" class="catalog-menu-container">
+            <div class="catalog-menu-header">
+                <img src="{% static "img/category-dog.png" %}" alt="">
+                <span>Собаки</span>
+            </div>
+            <div class="catalog-menu-content">
+                <a href="catalog/diet-dog-food/">Диетический корм</a>
+                <a href="catalog/dry-dog-food/">Сухой корм</a>
+                <a href="catalog/dog-treats/">Лакомства</a>
+            </div>
+        </div> 
+    </div>
+</div>
+<div class="wrapper">
+    <h2>Новинки</h2>
+        <div  class="new_goods">
+            {% for el in new_goods %}
+            <div class='product-container'>
+                <div class='product-info'>
+                 {% if el.image %}
+                    <img src="{{el.image.url}}" alt="">
+                 {% else %}
+                    <img src="{% static "img/no-product-img.png" %}" alt="">
+                 {% endif %}  
+                 <div>
+                    <a href='{% url 'product' el.id %}'>{{ el.name }}</a> 
+                 </div> 
+                </div>
+                <div>
+                    <span>{{ el.price }}</span>
+                    <a href="#"><button>В корзину</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</div>
+
+{% endblock %}
