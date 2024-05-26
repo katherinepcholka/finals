@@ -10,6 +10,10 @@
           </nav>
         </div>
         <div class="search">
+          <form action="{% url 'search' %}" method='get'>
+            <input type="search" type='text' name='q' placeholder="Поиск...">
+            <button type='submit'>Найти</button>
+          </form>
         </div>
         <div class="cart-login">
           <div class="cart">

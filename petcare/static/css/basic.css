@@ -108,6 +108,14 @@ button:active {
     gap: 20px;
 }
 
+.search{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 .cart-login{
     width: 100%;
     display: flex;

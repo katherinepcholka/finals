@@ -39,3 +39,16 @@ class ShowProduct(DetailView):
     template_name = 'goods/product.html'
     pk_url_kwarg = 'prdt_id'
     context_object_name = 'product'
+
+
+class Search(ListView):
+    template_name = 'goods/product_list.html'
+    context_object_name = 'products'
+
+    def get_queryset(self):
+        return Product.available.filter(name__icontains=self.request.GET.get('q'))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['q'] = self.request.GET.get('q')
+        return context
