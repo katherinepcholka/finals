@@ -1,0 +1,25 @@
+{% load static %} 
+
+<header>
+    <div class="header-wrapper">
+        <div class="navbar">
+          <img src="{% static "img/shop-logo.png" %}" alt="shop-logo" class="shop-logo" >
+          <nav>
+              <a href="{% url 'main' %}">Главная</a>
+              <a href="{% url 'about' %}">О нас</a>
+          </nav>
+        </div>
+        <div class="search">
+        </div>
+        <div class="cart-login">
+          <div class="cart">
+            <img src="{% static "img/cart.png" %}" alt="cart-img" class="cart-img" >
+            <a href="#">Корзина</a>
+          </div>
+          <div class="login">
+            <img src="{% static "img/login.png" %}" alt="login-img" class="login-img" >
+            <a href="#">Кабинет</a> 
+          </div>    
+        </div>
+    </div>
+</header>

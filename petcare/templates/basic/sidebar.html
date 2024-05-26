@@ -1,0 +1,20 @@
+{% load mptt_tags %}
+
+<div class="sidebar">
+    <h2>Категории</h2>
+    {% full_tree_for_model main.Category as categories %}
+        <div>
+            <ul>
+                {% recursetree categories %}
+                    <li>
+                        <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
+                        {% if not node.is_leaf_node %}
+                        <ul class="children">
+                            {{ children }}
+                        </ul>
+                        {% endif %}
+                    </li>
+                {% endrecursetree %}
+            </ul>
+        </div>
+</div>
