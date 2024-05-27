@@ -22,7 +22,7 @@
                     </div>
                     <div class='product-info-bottom'>
                         <span>{{ el.price }}</span>
-                        <a href="#"><button>В корзину</button></a>
+                        <a href="{% url 'cart:add_item' el.id %}"><button>В корзину</button></a>
                     </div>
                 </div>
                 {% endfor %}

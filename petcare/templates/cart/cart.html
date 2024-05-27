@@ -1,0 +1,39 @@
+{% extends 'basic/layout.html' %}
+{% load static %}
+
+{% block title %}Корзина{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        {% if goods_list %}
+           <div class="cart-container">
+                <div class="filled-cart">
+                    <div class="total-cart">
+                        <span>Количество: {{total_quantity}} |</span>
+                        <span> Общая сумма: {{total_sum}}</span>
+                    </div>
+                    {% for el in goods_list %}
+                    <div class="cart-item">
+                       <div class="cart_header">
+                            <span>{{ el.product.name }}</span>
+                       </div>
+                       <div class="cart_info">
+                            <div class="cart_quantity">
+                                <span>{{ el.quantity }} шт.</span>
+                                <a href="{% url 'cart:add_item' el.product.id %}"><img src="/static/img/add.png" alt="add"></a>
+                            </div>
+                            <span>Цена: {{ el.sum }}</span>
+                            <a href="{% url 'cart:delete_items' el.id %}"><img src="/static/img/delete.png" alt="delete"></a>
+                       </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <img src="{% static "img/love-cat.png" %}" alt="love-cat" class="cart-cat">
+           </div>
+        {% else %}
+            <div class="cart-container">
+                <h2>Корзина пуста...</h2>
+                <img src="{% static "img/sad-cat.png" %}" alt="sad-cat" class="cart-cat">
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

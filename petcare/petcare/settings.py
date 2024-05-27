@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     'mptt',
     'main',
     'users',
+    'cart',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
