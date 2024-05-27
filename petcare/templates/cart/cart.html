@@ -11,6 +11,7 @@
                         <span>Количество: {{total_quantity}} |</span>
                         <span> Общая сумма: {{total_sum}}</span>
                     </div>
+                    <a href="{% url 'orders:create_order' %}">Заказать</a>
                     {% for el in goods_list %}
                     <div class="cart-item">
                        <div class="cart_header">

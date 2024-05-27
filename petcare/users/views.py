@@ -1,3 +1,4 @@
+from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.views.generic import CreateView, UpdateView
@@ -6,7 +7,7 @@ from django.urls import reverse_lazy
 
 from petcare import settings
 from .forms import LoginUserForm, RegisterUserForm, ProfileUserForm, UserPasswordChangeForm
-
+from orders.models import Order, OrderItem
 
 
 class LoginUser(LoginView):
