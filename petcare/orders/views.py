@@ -19,7 +19,7 @@ def create_order(request):
                                          price=item.product.price,
                                          quantity=item.quantity)
             cart.delete()
-            return render(request, 'main/main_page.html',
+            return render(request, 'users/password_change_done.html',
                           {'order': order})
     else:
         form = OrderCreateForm
