@@ -2,6 +2,7 @@ from django.db import models
 from django.urls import reverse
 from mptt.models import MPTTModel, TreeForeignKey
 
+
 class Category(MPTTModel):
     name = models.CharField(max_length=200, db_index=True, verbose_name="Название")
     parent = TreeForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='children', db_index=True, verbose_name='Родительская категория')
